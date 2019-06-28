@@ -14,45 +14,53 @@ public class DiceGame {
 			System.out.println("Welcome to Grand Circus Casino! ");
 			System.out.println("Roll the die? y/n");
 			String userChoice = scnr.next();
-			
-		if (userChoice.equalsIgnoreCase("y")) {
-			
-			generateRandomDieRoll();
-	
-		} else {
-			
-			System.out.println("Okay, maybe next time! ");
-			
-		}
-	}
 		
-		public static void generateRandomDieRoll() {
+		do {
+			System.out.println("Enter the number of sides for each dice. ");
+			int die1 = scnr.nextInt();
+			int die2 = scnr.nextInt();
+			generateRandomDieRoll(die1, die2);	
+			System.out.println("Roll again? y/n");
+			userChoice = scnr.next();
+			
+			if (userChoice.equals("n")) {
+				
+				System.out.println("Goodbye! ");
+				
+			}
+				
+		} while (userChoice.equalsIgnoreCase("y")); 
+		
+	} 		
+	
+	
+		public static int generateRandomDieRoll(int die1, int die2) {
 			
 			Scanner scnr = new Scanner(System.in);
 			Random rand = new Random();
 			
-			System.out.println("Enter the number of sides on each die. ");
-			int numSides1 = scnr.nextInt();
-			int numSides2 = scnr.nextInt();
+			for (int i = 1; i <= die1 && i <=die2; i++); 
 			
-			int firstDie = (int) (Math.abs(rand.nextInt(numSides1)));
-			int secondDie = (int) (Math.abs(rand.nextInt(numSides2)));
-			System.out.println(firstDie + "\n" + secondDie);
-			int sum = firstDie + secondDie;
-			
-			System.out.println("Want to roll again? ");
-			String userChoice = scnr.next();
+			die1 = (int) (Math.abs(rand.nextInt(die1)) + 1);
+			die2 = (int) (Math.abs(rand.nextInt(die2)) + 1);
+			System.out.println(die1 + "\n" + die2);
 	
-		if (userChoice.equals("y")) {
 				
-				generateRandomDieRoll();
+				return die1 + die2;
 				
-		} else {
-				
-			System.out.println("Goodbye. ");
-				
-		}
-	}
+		} 
+		
+		public static void askAgain(String userPick) {
+			
+			Scanner scnr = new Scanner(System.in);
+			
+			System.out.println("Roll again? y/n");
+			userPick = scnr.next();
 			
 		
+		}
+			
 }
+	
+			
+
