@@ -49,16 +49,6 @@ public class DiceGame {
 				return die1 + die2;
 				
 		} 
-		
-		public static void askAgain(String userPick) {
-			
-			Scanner scnr = new Scanner(System.in);
-			
-			System.out.println("Roll again? y/n");
-			userPick = scnr.next();
-			
-		
-		}
 			
 }
 	
